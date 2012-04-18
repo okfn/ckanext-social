@@ -1,0 +1,15 @@
+<html
+  xmlns:i18n="http://genshi.edgewall.org/i18n"
+  xmlns:py="http://genshi.edgewall.org/"
+  xmlns:xi="http://www.w3.org/2001/XInclude"
+  py:strip=""
+  >
+<div class="social-sharethis">
+${buttons}
+<script type="text/javascript">var switchTo5x=false;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">
+	stLight.options({publisher: "${config.get('social.sharethis_api_key')}"});
+</script>
+</div>
+</html>
