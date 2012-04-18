@@ -32,6 +32,7 @@ Other options can also be set here::
 
  social.sharethis_style = horizontal | vertical | large | none
  social.sharethis_sites = googleplus twitter facebook sharethis email
+ social.sharethis_multipost = true | false
 
 Sharing can now be added using the social_sharethis() function inside a
 template::

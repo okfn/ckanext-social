@@ -1,5 +1,6 @@
 import os
 from webhelpers.html.tags import literal
+from paste.deploy.converters import asbool
 
 import ckan.plugins as plugins
 import ckan.lib.base as base
@@ -50,7 +51,7 @@ class Social(plugins.SingletonPlugin):
         #configure_public_directory(config, 'public')
 
     @classmethod
-    def sharethis(cls, style=None, sites=None):
+    def sharethis(cls, style=None, sites=None, multipost=None):
         ''' create share this buttons and add them to the template '''
         # override default style
         if style:
@@ -62,6 +63,10 @@ class Social(plugins.SingletonPlugin):
         if not sites:
             sites = cls.sites
 
+        # override default multipost
+        if multipost is None:
+            multipost = asbool(cls.config.get('social.sharethis_multipost', 'true'))
+
         links = []
         for site in cls.sites:
             if site in available_sites:
@@ -69,7 +74,8 @@ class Social(plugins.SingletonPlugin):
                 links.append('<span class="st_%s%s" displayText="%s"></span>' % data)
 
         buttons = literal('\n'.join(links))
-        return literal(base.render('sharethis.html', {'buttons' : buttons}))
+        data = {'buttons' : buttons, 'switchTo5x' : multipost}
+        return literal(base.render('sharethis.html', data))
 
     def get_helpers(self):
         return {'social_sharethis': self.sharethis}
