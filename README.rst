@@ -4,7 +4,7 @@ Social Extension
 The Social extension allows site visitors to share pages on social
 networking sites.
 
-NOTE: This extension requires can version 1.7 or higher.
+NOTE: This extension requires ckan version 1.7 or higher.
 
 Activating and Installing
 -------------------------
