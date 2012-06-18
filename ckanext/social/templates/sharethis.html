@@ -6,7 +6,7 @@
   >
 <div class="social-sharethis">
 ${buttons}
-<script type="text/javascript">var switchTo5x=${switchTo5x};</script>
+<script type="text/javascript">var switchTo5x=${str(switchTo5x).lower()};</script>
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">
 	stLight.options({publisher: "${config.get('social.sharethis_api_key')}"});
